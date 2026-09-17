@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p001",
+    "name": "Carbon Steel Wok 30cm",
+    "category": "kitchen",
+    "price": 1499,
+    "rating": 4.1,
+    "stock": 18,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp",
+    "description": "Pre-seasoned carbon steel wok that heats quickly and evenly. Ideal for stir-fries, deep frying and everyday Indian cooking."
+  },
+  {
+    "id": "p002",
+    "name": "Stainless Steel Chef Knife",
+    "category": "kitchen",
+    "price": 899,
+    "rating": 4.3,
+    "stock": 9,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/thumbnail.webp",
+    "description": "Razor-sharp 8-inch chef knife with an ergonomic handle for chopping, slicing and dicing."
+  },
+  {
+    "id": "p003",
+    "name": "Bamboo Spatula",
+    "category": "kitchen",
+    "price": 249,
+    "rating": 4.2,
+    "stock": 25,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/thumbnail.webp",
+    "description": "Eco-friendly bamboo spatula that is gentle on non-stick cookware and heat resistant."
+  },
+  {
+    "id": "p004",
+    "name": "Boxed Countertop Blender",
+    "category": "appliances",
+    "price": 2499,
+    "rating": 4.6,
+    "stock": 0,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp",
+    "description": "600W blender with a 1.5L jar and 3 speed settings for smoothies, shakes and purées."
+  },
+  {
+    "id": "p005",
+    "name": "Wooden Chopping Board",
+    "category": "kitchen",
+    "price": 549,
+    "rating": 3.9,
+    "stock": 30,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/thumbnail.webp",
+    "description": "Thick hardwood chopping board with a smooth finish that protects knife edges."
+  },
+  {
+    "id": "p006",
+    "name": "Stainless Steel Grater",
+    "category": "kitchen",
+    "price": 399,
+    "rating": 4.0,
+    "stock": 12,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/thumbnail.webp",
+    "description": "Four-sided box grater with fine, coarse, slicing and zesting surfaces and a non-slip base."
+  },
+  {
+    "id": "p007",
+    "name": "Steel Cooking Pot with Glass Lid",
+    "category": "dining",
+    "price": 1799,
+    "rating": 4.2,
+    "stock": 60,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/thumbnail.webp",
+    "description": "Stainless steel pot with a tempered glass lid and cool-touch handles. Works on gas and induction."
+  },
+  {
+    "id": "p008",
+    "name": "Insulated Lunch Box",
+    "category": "dining",
+    "price": 499,
+    "rating": 4.9,
+    "stock": 45,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp",
+    "description": "Leak-proof lunch box with compartments to keep meals fresh for office and school."
+  },
+  {
+    "id": "p009",
+    "name": "Plant-Based Hand Soap 500ml",
+    "category": "essentials",
+    "price": 299,
+    "rating": 3.9,
+    "stock": 4,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/attitude-super-leaves-hand-soap/thumbnail.webp",
+    "description": "Gentle, plant-based liquid hand soap that cleans without drying your skin."
+  },
+  {
+    "id": "p010",
+    "name": "Microwave Oven 20L",
+    "category": "appliances",
+    "price": 8999,
+    "rating": 4.8,
+    "stock": 0,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp",
+    "description": "20L solo microwave with 5 power levels, quick-start and auto-cook menus."
+  },
+  {
+    "id": "p011",
+    "name": "House Showpiece Plant",
+    "category": "decor",
+    "price": 1299,
+    "rating": 4.7,
+    "stock": 14,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp",
+    "description": "Lifelike artificial plant in a decorative pot that brightens any shelf or corner with zero maintenance."
+  },
+  {
+    "id": "p012",
+    "name": "Family Tree Photo Frame",
+    "category": "decor",
+    "price": 999,
+    "rating": 4.5,
+    "stock": 40,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp",
+    "description": "Multi-photo family tree wall frame to display your favourite memories together."
+  },
+  {
+    "id": "p013",
+    "name": "Modern Table Lamp",
+    "category": "decor",
+    "price": 1599,
+    "rating": 3.6,
+    "stock": 7,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp",
+    "description": "Minimal bedside table lamp with a fabric shade that gives a warm, soft glow."
+  },
+  {
+    "id": "p014",
+    "name": "Ceramic Plant Pot",
+    "category": "decor",
+    "price": 449,
+    "rating": 4.0,
+    "stock": 22,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp",
+    "description": "Glazed ceramic planter with a drainage hole, perfect for indoor plants and succulents."
+  },
+  {
+    "id": "p015",
+    "name": "Decoration Swing",
+    "category": "decor",
+    "price": 3999,
+    "rating": 4.2,
+    "stock": 3,
+    "image": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp",
+    "description": "Handcrafted decorative hanging swing that adds a cosy, stylish touch to balconies and living rooms."
+  },
+  {
+    "id": "p016",
+    "name": "Serving Tray",
+    "category": "dining",
+    "price": 699,
+    "rating": 4.6,
+    "stock": 20,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/thumbnail.webp",
+    "description": "Sturdy serving tray with raised edges and handles for tea, snacks and breakfast in bed."
+  },
+  {
+    "id": "p017",
+    "name": "Bedside Table – African Cherry",
+    "category": "furniture",
+    "price": 7999,
+    "rating": 4.1,
+    "stock": 16,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp",
+    "description": "Solid wood bedside table in a rich cherry finish with a drawer and open shelf."
+  },
+  {
+    "id": "p018",
+    "name": "Executive Office Chair",
+    "category": "furniture",
+    "price": 12999,
+    "rating": 4.9,
+    "stock": 0,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp",
+    "description": "Comfortable cushioned office chair with a classic design for your home workspace."
+  },
+  {
+    "id": "p019",
+    "name": "Mug Tree Stand",
+    "category": "dining",
+    "price": 599,
+    "rating": 3.8,
+    "stock": 35,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/thumbnail.webp",
+    "description": "Space-saving mug holder that keeps up to 6 cups organised and within reach."
+  },
+  {
+    "id": "p020",
+    "name": "Rotating Spice Rack",
+    "category": "kitchen",
+    "price": 799,
+    "rating": 4.9,
+    "stock": 11,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/thumbnail.webp",
+    "description": "Revolving spice rack with jars that saves counter space and keeps spices easy to find."
+  },
+  {
+    "id": "p021",
+    "name": "Electric Induction Stove",
+    "category": "appliances",
+    "price": 3499,
+    "rating": 4.1,
+    "stock": 28,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/thumbnail.webp",
+    "description": "2000W induction cooktop with touch controls, timer and preset Indian cooking menus."
+  },
+  {
+    "id": "p022",
+    "name": "Ceramic Dinner Plate",
+    "category": "dining",
+    "price": 199,
+    "rating": 3.7,
+    "stock": 19,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/thumbnail.webp",
+    "description": "Microwave-safe ceramic dinner plate with a classic white glaze."
+  },
+  {
+    "id": "p023",
+    "name": "Hand Blender",
+    "category": "appliances",
+    "price": 1899,
+    "rating": 3.9,
+    "stock": 2,
+    "image": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp",
+    "description": "Powerful immersion hand blender for soups, batters and chutneys, with a detachable steel shaft."
+  },
+  {
+    "id": "p024",
+    "name": "Tissue Paper Box",
+    "category": "essentials",
+    "price": 149,
+    "rating": 4.3,
+    "stock": 8,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp",
+    "description": "Soft 2-ply facial tissues in a convenient dispenser box for home and car."
+  }
+]

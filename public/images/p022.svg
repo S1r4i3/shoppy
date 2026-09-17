@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" color="#e59a2f">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbe3bd"/><stop offset="1" stop-color="#e59a2f"/></linearGradient></defs>
+<rect width="400" height="320" fill="url(#g)"/><rect x="170" y="90" width="60" height="150" rx="14" fill="#fff" opacity=".9"/><rect x="185" y="60" width="30" height="36" rx="6" fill="#fff" opacity=".7"/>
+<text x="200" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Ceramic Dinner Plate</text></svg>

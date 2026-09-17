@@ -16,20 +16,26 @@ const emptyDb = () => ({
   inventory: Object.fromEntries(seedProducts.map((p) => [p.id, p.stock])),
 });
 
+// In-memory copy so the app keeps working (for this visit) even if the browser
+// blocks or fills up localStorage - otherwise writes would be silently lost.
+let memoryDb = null;
+
 function read() {
   try {
     const raw = localStorage.getItem(DB_KEY);
-    return raw ? { ...emptyDb(), ...JSON.parse(raw) } : emptyDb();
+    if (raw) return { ...emptyDb(), ...JSON.parse(raw) };
   } catch {
-    return emptyDb();
+    /* storage blocked or corrupt - fall back to memory */
   }
+  return memoryDb ? structuredClone(memoryDb) : emptyDb();
 }
 
 function write(db) {
+  memoryDb = structuredClone(db);
   try {
     localStorage.setItem(DB_KEY, JSON.stringify(db));
-  } catch {
-    /* storage full or unavailable - ignore in mock */
+  } catch (err) {
+    console.warn('[myShoppy] Could not save to localStorage, using in-memory data for this visit.', err);
   }
 }
 

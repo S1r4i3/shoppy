@@ -16,9 +16,11 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState('');
   const [loading, setLoading] = useState(false);
-  const notice = location.state?.notice || authNotice;
-
-  useEffect(() => () => clearAuthNotice(), []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Show a sign-out / expiry message only once, on the visit right after it happened.
+  const [notice] = useState(() => location.state?.notice || authNotice);
+  useEffect(() => {
+    if (authNotice) clearAuthNotice();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 

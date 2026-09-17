@@ -238,5 +238,75 @@
     "stock": 8,
     "image": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp",
     "description": "Soft 2-ply facial tissues in a convenient dispenser box for home and car."
+  },
+  {
+    "id": "p025",
+    "name": "Smart Home Speaker",
+    "category": "appliances",
+    "price": 4999,
+    "rating": 4.4,
+    "stock": 15,
+    "image": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp",
+    "description": "Voice-controlled smart speaker with rich 360° sound. Plays music, sets timers and controls smart home devices."
+  },
+  {
+    "id": "p026",
+    "name": "Upholstered Double Bed",
+    "category": "furniture",
+    "price": 24999,
+    "rating": 4.8,
+    "stock": 6,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+    "description": "Queen-size bed with a padded headboard and sturdy wooden frame for a comfortable, elegant bedroom."
+  },
+  {
+    "id": "p027",
+    "name": "3-Seater Fabric Sofa",
+    "category": "furniture",
+    "price": 29999,
+    "rating": 3.9,
+    "stock": 5,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp",
+    "description": "Spacious three-seater sofa with soft cushions and durable fabric upholstery for everyday lounging."
+  },
+  {
+    "id": "p028",
+    "name": "Wooden Bathroom Vanity with Mirror",
+    "category": "furniture",
+    "price": 14999,
+    "rating": 3.6,
+    "stock": 4,
+    "image": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp",
+    "description": "Water-resistant wooden vanity unit with a wash basin, storage cabinet and matching wall mirror."
+  },
+  {
+    "id": "p029",
+    "name": "Moisturising Body Wash 500ml",
+    "category": "essentials",
+    "price": 399,
+    "rating": 4.5,
+    "stock": 34,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/thumbnail.webp",
+    "description": "Creamy shea butter body wash that cleans gently and leaves skin soft and hydrated."
+  },
+  {
+    "id": "p030",
+    "name": "Body & Face Lotion 400ml",
+    "category": "essentials",
+    "price": 349,
+    "rating": 3.8,
+    "stock": 40,
+    "image": "https://cdn.dummyjson.com/product-images/skin-care/vaseline-men-body-and-face-lotion/thumbnail.webp",
+    "description": "Light, non-greasy daily lotion for body and face that absorbs quickly and locks in moisture."
+  },
+  {
+    "id": "p031",
+    "name": "Refined Cooking Oil 1L",
+    "category": "essentials",
+    "price": 189,
+    "rating": 4.8,
+    "stock": 25,
+    "image": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp",
+    "description": "Light refined cooking oil suitable for frying, sautéing and everyday Indian cooking."
   }
 ]

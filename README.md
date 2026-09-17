@@ -45,10 +45,10 @@ The app is built to the *Capstone Project – myShoppy* specification: a clean, 
 - Sign in / sign out securely
 - Forgot password flow with a 6-digit reset code (expires in 10 minutes)
 - View and update profile, change password
-- Session expires automatically after 30 minutes with a clear message
+- Session stays active while you use the app and expires after 30 minutes of inactivity, with a clear message
 
 ### 🛍️ Product Catalogue
-- 24 household products across 6 categories
+- 31 household products across 6 categories
 - Real product photos, name, category, description, price, rating and stock status
 - Category-wise browsing
 - Product details page with quantity selector
@@ -128,7 +128,7 @@ Copy `.env.example` to `.env` to change the defaults:
 | Variable | Default | Purpose |
 |---|---|---|
 | `VITE_API_LATENCY_MS` | `400` | Simulated API delay (shows loading states) |
-| `VITE_SESSION_TTL_MINUTES` | `30` | Session lifetime before auto sign-out |
+| `VITE_SESSION_TTL_MINUTES` | `30` | Minutes of inactivity before auto sign-out |
 
 > ⚠️ Open the app on `localhost` (or HTTPS). Password hashing uses the Web Crypto API, which browsers only allow in a secure context. Do **not** open `index.html` directly from the file system.
 
@@ -293,7 +293,7 @@ Product listing supports query parameters:
 | No plain-text passwords | Passwords are hashed with **PBKDF2 (100,000 iterations, SHA-256)** and a unique salt per user |
 | No secrets in code | No API keys or credentials in the source. `.env` holds only non-secret settings |
 | Secure session storage | A 256-bit random token is stored in `sessionStorage` (cleared when the tab closes). The backend keeps only a **SHA-256 hash** of the token |
-| Session expiry | Tokens expire after 30 minutes. The user is signed out automatically with a message |
+| Session expiry | Sliding idle timeout: activity extends the session; after 30 minutes of inactivity the user is signed out with a message |
 | Protected routes | `ProtectedRoute` blocks Cart, Checkout, Order and Profile for guests |
 | User-specific data | Carts and orders are tied to the signed-in user. Orders can only be viewed by their owner |
 | No account enumeration | Login returns the same "Invalid email or password" for unknown emails and wrong passwords. Password reset responds the same way for every email |
@@ -336,16 +336,16 @@ Product listing supports query parameters:
 
 ## 11. Product Dataset
 
-`src/data/products.json` contains **24 products across 6 categories**:
+`src/data/products.json` contains **31 products across 6 categories**:
 
 | Category | Products |
 |---|---|
 | Kitchen | Carbon Steel Wok, Chef Knife, Bamboo Spatula, Chopping Board, Grater, Spice Rack |
-| Appliances | Countertop Blender, Microwave Oven, Induction Stove, Hand Blender |
+| Appliances | Countertop Blender, Microwave Oven, Induction Stove, Hand Blender, Smart Home Speaker |
 | Dining | Cooking Pot with Lid, Lunch Box, Serving Tray, Mug Tree Stand, Dinner Plate |
 | Home Décor | Showpiece Plant, Photo Frame, Table Lamp, Plant Pot, Decoration Swing |
-| Furniture | Bedside Table, Office Chair |
-| Essentials | Hand Soap, Tissue Paper Box |
+| Furniture | Bedside Table, Office Chair, Double Bed, 3-Seater Sofa, Bathroom Vanity with Mirror |
+| Essentials | Hand Soap, Tissue Paper Box, Body Wash, Body & Face Lotion, Cooking Oil |
 
 Each product has:
 
@@ -402,7 +402,7 @@ Screenshots of the main user journeys are in [`docs/screenshots/`](docs/screensh
 | Out of stock | Countertop Blender, Microwave Oven, Office Chair |
 | Low stock limit | Hand Blender (only 2 left) |
 | Password reset | *Forgot password?* The code is shown on screen in demo mode |
-| Session expiry | Set `VITE_SESSION_TTL_MINUTES=1` in `.env`, restart and wait one minute |
+| Session expiry | Set `VITE_SESSION_TTL_MINUTES=1` in `.env`, restart, sign in and leave the app idle for one minute |
 | Protected route | Sign out and open `/cart` directly |
 | No results | Search for `xyz` |
 

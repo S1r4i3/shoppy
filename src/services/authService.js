@@ -20,8 +20,13 @@ async function createSession(userId) {
   return { token, expiresAt };
 }
 
-/** Resolves the user for a token, or throws UNAUTHORIZED / SESSION_EXPIRED. */
-export async function requireUser(token) {
+const SLIDE_MIN_GAP_MS = 60_000; // avoid rewriting the session on every call
+
+/**
+ * Resolves the user for a token, or throws UNAUTHORIZED / SESSION_EXPIRED.
+ * Valid sessions are extended (sliding idle timeout) unless `slide` is false.
+ */
+export async function requireUser(token, { slide = true } = {}) {
   if (!token) throw new ApiError('Please sign in to continue.', ERR.UNAUTHORIZED, 401);
   const tokenHash = await sha256(token);
   const session = query((db) => db.sessions.find((s) => s.tokenHash === tokenHash));
@@ -34,6 +39,15 @@ export async function requireUser(token) {
   }
   const user = query((db) => db.users.find((u) => u.id === session.userId));
   if (!user) throw new ApiError('Account not found.', ERR.UNAUTHORIZED, 401);
+
+  const renewed = now() + config.sessionTtlMinutes * 60_000;
+  if (slide && renewed - session.expiresAt > SLIDE_MIN_GAP_MS) {
+    transaction((db) => {
+      const s = db.sessions.find((x) => x.tokenHash === tokenHash);
+      if (s) s.expiresAt = renewed;
+    });
+    session.expiresAt = renewed;
+  }
   return { user, session };
 }
 
@@ -84,6 +98,18 @@ export const authService = {
         db.sessions = db.sessions.filter((s) => s.tokenHash !== tokenHash);
       });
     }),
+
+  /** Extend the session because the user is active. No simulated latency. */
+  touch: async (token) => {
+    const { session } = await requireUser(token);
+    return { expiresAt: session.expiresAt };
+  },
+
+  /** Check a session without extending it (used by the expiry timer). */
+  check: async (token) => {
+    const { session } = await requireUser(token, { slide: false });
+    return { expiresAt: session.expiresAt };
+  },
 
   me: (token) =>
     simulate(async () => {

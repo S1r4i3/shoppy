@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { authService } from '../services/authService';
 import { tokenStore } from '../services/sessionStorage';
 import { ERR } from '../services/errors';
+import { useToast } from './ToastContext';
 
 const AuthContext = createContext(null);
 
@@ -12,6 +13,7 @@ export function AuthProvider({ children }) {
   const [status, setStatus] = useState(token ? 'checking' : 'guest'); // checking | authenticated | guest
   const [authNotice, setAuthNotice] = useState(null); // message shown on login screen
   const timerRef = useRef(null);
+  const toast = useToast();
 
   const clearSession = useCallback((notice = null) => {
     tokenStore.clear();
@@ -46,28 +48,49 @@ export function AuthProvider({ children }) {
       );
   }, [token, status, clearSession]);
 
-  // Auto sign-out when the session expires.
+  // Keep the session alive while the user is active (throttled to once a minute).
+  useEffect(() => {
+    if (status !== 'authenticated' || !token) return undefined;
+    let last = 0;
+    const onActivity = () => {
+      if (document.visibilityState === 'hidden' || Date.now() - last < 60_000) return;
+      last = Date.now();
+      authService
+        .touch(token)
+        .then(({ expiresAt: exp }) => setExpiresAt(exp))
+        .catch(() => {}); // the expiry timer below handles real expiry
+    };
+    const events = ['pointerdown', 'keydown', 'scroll', 'visibilitychange'];
+    events.forEach((e) => window.addEventListener(e, onActivity, { passive: true }));
+    return () => events.forEach((e) => window.removeEventListener(e, onActivity));
+  }, [status, token]);
+
+  // When the expiry time is reached, re-check with the backend before signing out
+  // (the session may have been extended by activity or another tab).
   useEffect(() => {
     clearTimeout(timerRef.current);
-    if (!expiresAt) return undefined;
-    const ms = expiresAt - Date.now();
-    timerRef.current = setTimeout(
-      () => clearSession('Your session has expired. Please sign in again.'),
-      Math.max(0, Math.min(ms, 2 ** 31 - 1)),
-    );
+    if (!expiresAt || !token) return undefined;
+    const ms = Math.max(1000, Math.min(expiresAt - Date.now() + 500, 2 ** 31 - 1));
+    timerRef.current = setTimeout(() => {
+      authService
+        .check(token)
+        .then(({ expiresAt: exp }) => setExpiresAt(exp))
+        .catch((err) => clearSession(err.code === ERR.SESSION_EXPIRED ? 'Your session has expired. Please sign in again.' : null));
+    }, ms);
     return () => clearTimeout(timerRef.current);
-  }, [expiresAt, clearSession]);
+  }, [expiresAt, token, clearSession]);
 
   /** Call from any feature when an API returns an auth error. Returns true if handled. */
   const handleAuthError = useCallback(
     (err) => {
       if (err?.code === ERR.SESSION_EXPIRED || err?.code === ERR.UNAUTHORIZED) {
         clearSession(err.message);
+        toast?.error(err.message);
         return true;
       }
       return false;
     },
-    [clearSession],
+    [clearSession, toast],
   );
 
   const value = useMemo(
